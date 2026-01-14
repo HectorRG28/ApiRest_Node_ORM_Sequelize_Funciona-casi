@@ -1,7 +1,9 @@
 import express from "express";
 import productoRoutes from "./routes/productosRoutes.js";
 import { sequelize } from "./config/db.js";
-import logRoutes from "./routes/logsRoutes.js";
+// CORREGIDO: Eliminada la 's' de logsRoutes para coincidir con el generador
+import logRoutes from "./routes/logRoutes.js"; 
+
 const app = express();
 app.use(express.json());
 

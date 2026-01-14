@@ -1,0 +1,15 @@
+### Obtener todos los productos
+GET http://localhost:3000/productos
+
+### Crear un producto nuevo
+POST http://localhost:3000/productos
+Content-Type: application/json
+
+{
+    "nombre": "Monitor Gamer 144Hz",
+    "precio": 299.99,
+    "stock": 5
+}
+
+### Ver los logs generados automáticamente
+GET http://localhost:3000/logs

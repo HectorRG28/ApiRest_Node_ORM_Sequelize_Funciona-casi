@@ -1,12 +1,19 @@
 import express from "express";
-import { productosController } from "../controllers/productosController.js";
+// Importamos las funciones individuales que realmente existen en el controlador
+import {
+  crearProducto,
+  obtenerProductos,
+  obtenerProducto,
+  actualizarProducto,
+  eliminarProducto
+} from "../controllers/productosController.js";
 
 const router = express.Router();
 
-router.get("/", productosController.obtenerTodos);
-router.get("/:id", productosController.obtenerUno);
-router.post("/", productosController.crear);
-router.put("/:id", productosController.actualizar);
-router.delete("/:id", productosController.eliminar);
+router.post("/", crearProducto);
+router.get("/", obtenerProductos);
+router.get("/:id", obtenerProducto);
+router.put("/:id", actualizarProducto);
+router.delete("/:id", eliminarProducto);
 
 export default router;

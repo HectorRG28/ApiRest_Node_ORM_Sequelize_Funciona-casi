@@ -7,19 +7,22 @@ export const Producto = sequelize.define("Productos", {
     autoIncrement: true,
     primaryKey: true
   },
-  nombre: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  precio: {
-    type: DataTypes.FLOAT,
-    allowNull: false
-  },
-  stock: {
-    type: DataTypes.INTEGER,
-    defaultValue: 0
+// En models/productos.js
+nombre: {
+  type: DataTypes.STRING,
+  allowNull: false,
+  validate: {
+    notEmpty: { msg: "El nombre no puede estar vacío" },
+    len: [3, 50] // Mínimo 3 caracteres, máximo 50
   }
-}, {
-  tableName: "productos",
-  timestamps: true
+},
+precio: {
+  type: DataTypes.FLOAT,
+  allowNull: false,
+  validate: {
+    isFloat: true,
+    min: { args: [0.01], msg: "El precio debe ser mayor que cero" }
+  }
+}
+  
 });
